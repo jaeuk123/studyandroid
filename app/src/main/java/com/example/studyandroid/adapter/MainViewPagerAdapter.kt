@@ -1,19 +1,25 @@
 package com.example.studyandroid.adapter
 
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.example.studyandroid.adapter.ViewHolder.MainPageViewHolder
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.studyandroid.Fragment.MainViewPager.MainFirstFragment
 
-class MainViewPagerAdapter : RecyclerView.Adapter<MainPageViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainPageViewHolder {
-        TODO("Not yet implemented")
-    }
-
-    override fun onBindViewHolder(holder: MainPageViewHolder, position: Int) {
-        TODO("Not yet implemented")
-    }
+class MainViewPagerAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle):
+        FragmentStateAdapter(fragmentManager, lifecycle){
 
     override fun getItemCount(): Int {
         TODO("Not yet implemented")
     }
+
+    override fun createFragment(position: Int): Fragment {
+        return when(position){
+            0 -> return MainFirstFragment()
+            else ->{
+                return MainFirstFragment()
+            }
+        }
+    }
+
 }
