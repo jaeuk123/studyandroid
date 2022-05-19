@@ -11,5 +11,14 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         />
+    <GridLayout
+        android:id="@+id/GridLayout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:columnCount="3"
+        android:layout_height="300dp">
+
+    </GridLayout>
+
 
 </LinearLayout>

@@ -9,15 +9,17 @@ import com.example.studyandroid.Fragment.MainViewPager.MainFirstFragment
 class MainViewPagerAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle):
         FragmentStateAdapter(fragmentManager, lifecycle){
 
+    private val fragmentcount = 2
+
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return fragmentcount
     }
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> return MainFirstFragment()
+            0 -> MainFirstFragment()
             else ->{
-                return MainFirstFragment()
+                MainFirstFragment()
             }
         }
     }
