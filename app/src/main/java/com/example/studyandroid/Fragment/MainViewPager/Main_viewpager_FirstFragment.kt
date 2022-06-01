@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.studyandroid.databinding.ViewpagerFirstfragmentBinding
 
-class MainFirstFragment : Fragment() {
+class Main_viewpager_FirstFragment : Fragment() {
 
     private var _binding: ViewpagerFirstfragmentBinding? = null
     private val binding get() = _binding!!
@@ -27,7 +27,7 @@ class MainFirstFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.viewpagerTextview.text = "생성"
         super.onViewCreated(view, savedInstanceState)
+        binding.viewpagerName.text
     }
 }

@@ -43,24 +43,21 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             UserDatabase::class.java,"test-db"
         ).build()
-        val job1 = CoroutineScope(Dispatchers.IO).async {
-            println("1 = ${1}")
-        }
 
-        runBlocking {
-            delay(1000L)
-            val onlyDate: LocalDateTime = LocalDateTime.now()
-            val ofPattern = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초")
-            db.userDao().insertUser(UserObject("1","1",onlyDate.format(ofPattern)))
-            Log.d("DB SAVE DATA","SAVED")
-
-            readdata(db)
-        }
+//        runBlocking {
+//            delay(1000L)
+//            val onlyDate: LocalDateTime = LocalDateTime.now()
+//            val ofPattern = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초")
+//            db.userDao().insertUser(UserObject("1","1",onlyDate.format(ofPattern)))
+//            Log.d("DB SAVE DATA","SAVED")
+//
+//            readdata(db)
+//        }
 
 
     }
     suspend fun readdata(db:UserDatabase) = coroutineScope {
-        withContext(Dispatchers.Main) {
+        withContext(Dispatchers.IO) {
             var user = db.userDao().searchAllUser()
             for (i:Int in 0 until user.size){
                 Log.d("DB ALL VALUE : ","${user[i].name} ${user[i].id} ${user[i].Date}")
